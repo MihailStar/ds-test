@@ -1,0 +1,10 @@
+{
+  "ignore": ["dist", "node_modules"],
+  "presets": [
+    [
+      "@parcel/babel-preset-env",
+      { "targets": "defaults, not ie <= 11, not ie_mob <= 11" }
+    ],
+    "@babel/preset-typescript"
+  ]
+}

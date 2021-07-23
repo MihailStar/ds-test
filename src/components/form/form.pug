@@ -1,0 +1,28 @@
+include ../input/input.pug
+include ../button/button.pug
+
+mixin form(elements = [])
+  form.form&attributes(attributes)
+    each element in elements
+      case element.tag
+        when "h1"
+          h1.form__title&attributes(element.attrs)= element.text
+        when "h2"
+          h2.form__title&attributes(element.attrs)= element.text
+        when "h3"
+          h3.form__title&attributes(element.attrs)= element.text
+        when "h4"
+          h4.form__title&attributes(element.attrs)= element.text
+        when "h5"
+          h5.form__title&attributes(element.attrs)= element.text
+        when "h6"
+          h6.form__title&attributes(element.attrs)= element.text
+        when "input"
+          .form__input
+            +input&attributes(element.attrs)
+        when "button"
+          .form__button
+            +button(element.text)&attributes(element.attrs)
+        default
+          -
+            throw new Error("form.pug: Unknown tag");

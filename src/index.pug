@@ -1,0 +1,74 @@
+include ./components/form/form.pug
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(
+      name="viewport",
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    )
+    link(href="https://fonts.gstatic.com", rel="preconnect")
+    link(
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap",
+      rel="stylesheet"
+    )
+    link(href="./index.sass", rel="stylesheet")
+    title Задать вопрос
+
+  body.ask-question-page
+    -
+      const elems = [
+        {
+          tag: "h2",
+          text: "Задать вопрос",
+        },
+        {
+          tag: "input",
+          attrs: {
+            placeholder: "Фамилия Имя Отчество",
+            title: "Введите ФИО, русскими буквами, через пробел, в формате: «Фамилия Имя Отчество»",
+            "data-error-message": "Введите ФИО, русскими буквами, через пробел, в формате: «Фамилия Имя Отчество»",
+            type: "text",
+            name: "name",
+            pattern: "^[А-ЯЁа-яё]+(?:-[А-ЯЁа-яё]+)? [А-ЯЁа-яё]+(?:-[А-ЯЁа-яё]+)? [А-ЯЁа-яё]+(?:-[А-ЯЁа-яё]+)?$",
+            required: "required",
+          },
+        },
+        {
+          tag: "input",
+          attrs: {
+            placeholder: "Телефон",
+            title: "Введите номер телефона, в формате: «+7-999-999-99-99»",
+            "data-error-message": "Введите номер телефона, в формате: «+7-999-999-99-99»",
+            type: "tel",
+            name: "phone",
+            pattern: "^\\+[0-9]+(?:-[0-9]+)+$",
+            required: "required",
+          },
+        },
+        {
+          tag: "input",
+          attrs: {
+            placeholder: "Email",
+            title: "Введите электронную почту, в формате: «zzz@zzz.zzz»",
+            "data-error-message": "Введите электронную почту, в формате: «zzz@zzz.zzz»",
+            type: "email",
+            name: "email",
+            pattern: "^[^@s]+@[^@s]+$",
+          },
+        },
+        {
+          tag: "button",
+          text: "Отправить запрос",
+          attrs: {
+            type: "submit"
+          },
+        },
+      ];
+    .ask-question-page__form
+      +form(elems)(
+        action="https://60376bfd5435040017722533.mockapi.io/form",
+        method="post"
+      )
+    script(src="./index.ts")

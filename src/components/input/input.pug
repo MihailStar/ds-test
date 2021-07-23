@@ -1,0 +1,9 @@
+mixin input
+  -
+    const attrs =
+      attributes.required !== void 0 && attributes.placeholder !== void 0
+        ? Object.assign({}, attributes, {
+            placeholder: `${attributes.placeholder} *`,
+          })
+        : attributes;
+  input.input&attributes(attrs)

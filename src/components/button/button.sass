@@ -1,0 +1,36 @@
+@use "sass:color"
+
+.button
+  width: 100%
+  padding-top: 13px
+  padding-right: 15px
+  padding-bottom: 13px
+  padding-left: 15px
+  font-family: inherit
+  font-size: 17px
+  font-weight: 400
+  line-height: (22px / 17px * 1em)
+  color: #ffffff
+  text-align: center
+  text-transform: uppercase
+  vertical-align: middle
+  cursor: pointer
+  background-color: #6979f8
+  border: 0
+  border-radius: 6px
+  transition: 300ms
+
+  &:hover,
+  &:focus
+    background-color: color.scale(#6979f8, $lightness: -10%)
+    outline: 0
+
+  &:active
+    background-color: color.scale(#6979f8, $lightness: -20%)
+
+  &_disabled,
+  &[disabled]
+    pointer-events: none
+    cursor: default
+    user-select: none
+    opacity: 0.5

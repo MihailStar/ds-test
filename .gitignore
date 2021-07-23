@@ -1,0 +1,5 @@
+.git
+.parcel-cache
+.publish
+dist
+node_modules
